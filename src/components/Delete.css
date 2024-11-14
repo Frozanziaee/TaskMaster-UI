@@ -1,0 +1,17 @@
+
+.new-header {
+    margin-bottom: 1em;
+}
+
+.p-delete {
+    padding: 1.5em;
+    text-align: start;
+}
+
+.delete-div {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1em;
+    margin-top: 1em;
+}

@@ -1,0 +1,95 @@
+* {
+  margin:0;
+  padding: 0;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem 2rem 1rem;
+}
+ .title {
+   font-size: 2rem;
+   font-weight: 500;
+   line-height: 38.73px;
+   color: #000000;
+   margin-top: 0.5em;
+   margin-bottom: 0;
+ }
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.5em 6em 0.5em 1em;
+  margin: 0.3em 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 22.4px;
+  color-scheme: #111113;
+  border-radius: 3px;
+  border: 1px solid #11111333
+
+}
+
+.google, .github {
+  padding: 0.5em 4.5em;
+  margin-bottom: 1em;
+}
+
+.google {
+  background: #D7503F; 
+}
+.google .link {
+  color: #FFFFFF;
+}
+
+.github {
+  background: #D9D9D9;
+}
+.github .link {
+  color: #111111;
+}
+
+.link{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 22.4px;
+  text-decoration: none;
+}
+
+.input-date {
+  padding: 0.5em 1.1em 0.5em 1em;
+}
+
+::-webkit-calendar-picker-indicator { 
+  margin-left: 9em;
+}
+
+.not-mem {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 22.4px;
+  color: #6a6d6d;
+}
+ 
+.account {
+  color: #000000;
+}

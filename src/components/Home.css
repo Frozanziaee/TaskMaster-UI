@@ -1,0 +1,85 @@
+.home {
+    margin: 100px auto;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em; 
+}
+
+.title {
+    margin-bottom: 1em;
+}
+
+.card {
+    border-radius: 8px;
+    padding: 0.5em 2.5em 0.5em 1em;
+    text-align: start;
+    border: none;
+}
+
+.total {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 44.8px;
+    color: #000000;
+    margin: 0;
+}
+
+.text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 33.6px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.total-projects-bg {
+    border: 1px solid #ccc;
+}
+
+.not-started {
+    color: #808080;
+}
+
+.not-started-bg {
+    background: #8080801A;
+}
+
+.in-progress {
+    color: #0055CC;
+}
+
+.in-progress-bg {
+    background: #0055CC1A;
+}
+
+.completed {
+    color: #33B200;
+}
+
+.completed-bg {
+    background: #33B2001A;
+}
+
+.new-project {
+    width: 74%;
+    border: 1px solid #555252;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000000;
+    background: #FFFFFF;
+    margin: 1em auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    
+}
+

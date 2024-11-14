@@ -1,0 +1,71 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -5em;
+    margin-bottom: -5.5em;
+}
+
+.nav-user, .out {
+    display: flex;
+    align-items: center;
+}
+
+.nav-profile {
+    margin-bottom: 0;
+    text-align: start;
+}
+
+.nav-email {
+    margin-top: 0;
+    text-align: start;
+}
+
+.avatar, .notification {
+    width: 24px;
+    height: 24px;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding: 0.5em;
+}
+
+.para {
+    margin-left: 0.6em;
+}
+
+.nav-profile {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 22.4px;
+    color: #000000;
+}
+
+.nav-email {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 19.6px;
+    color: #999999;
+}
+
+.home {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 33.6px;
+    color: #000000;
+}
+
+.sign-out {
+    border-radius: 8px;
+    border: 1px solid #000000;
+    padding: 8px;
+    margin-left: 0.6em;
+    margin-top: -3px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-out {
+    margin-left: 3px;
+    margin-top: 4px;
+}
+    

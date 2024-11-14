@@ -1,0 +1,63 @@
+.task-master{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.content-edit {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8em;
+}
+
+.title-edit {
+    margin-bottom: 1em;
+}
+
+.name, .input-date{
+    margin-bottom: 0.5em;
+}
+.input-date {
+    padding: 0.5em 1.1em 0.5em 1em;
+    border-radius: 12px;
+  }
+  
+  ::-webkit-calendar-picker-indicator { 
+    margin-left: 1em;
+  }
+
+.status-btn {
+    margin-left: 1em;
+}  
+
+.info {
+    text-align: start;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 1em;
+}
+
+.update-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.save {
+    background: #CCCCCC;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.cancel {
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+.edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

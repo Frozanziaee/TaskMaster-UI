@@ -1,0 +1,15 @@
+.new {
+    width: 100%;
+    max-width: 310px;
+    margin: 1em auto;
+}
+
+.new-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-btn {
+    width: 100%;
+}

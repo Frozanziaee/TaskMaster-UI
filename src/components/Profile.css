@@ -1,0 +1,28 @@
+.profile {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.profile-img {
+    background: #000000;
+    color: #FFFFFF;
+    padding: 80px;
+    border-radius: 8px;
+
+}
+
+.profile-btn {
+    background: #CCCCCC;
+    color: #FFFFFF;
+    padding: 0.5em 8.5em;
+    border-radius: 4px;
+}
+
+.footer {
+    border-top: 1px solid #808080;
+    margin-top: 2.5em;  
+}
+  
