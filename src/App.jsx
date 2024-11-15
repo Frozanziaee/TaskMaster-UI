@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 //import axios from 'axios'
 import './App.css'
-import DeleteTask from './components/DeleteTask'
-// import EditTask from './components/EditTask'
+// import DeleteTask from './components/DeleteTask'
+ import EditTask from './components/EditTask'
 // import EditProject from './components/EditProject'
 // import NewTask from './components/NewTask'
 // import NewProject from './components/NewProject'
@@ -41,11 +41,11 @@ function App() {
         {/* <Projects /> */}
         {/* <Profile /> */}
         {/* <Tasks /> */}
-        {/* <NewTask />
-        // <NewProject /> */}
-        {/* <EditTask /> */}
+        {/* <NewTask /> */}
+        {/* <NewProject /> */}
+        <EditTask />
         {/* <EditProject /> */}
-        <DeleteTask />
+        {/* <DeleteTask /> */}
       </div>
     </>
   )

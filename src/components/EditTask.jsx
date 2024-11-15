@@ -6,10 +6,11 @@ import './Projects.css'
 import './Edit.css'
 import './New.css'
 import { IoCloseSharp } from "react-icons/io5";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 export default function EditTask () {
     return (
-        <div>   
+        <div className='edit box-shadow'>   
             <div className='task-master'>
                 <div className='new-header'>
                     <h2 className='title-edit'> TaskMaster UI/UX Design</h2>
@@ -35,7 +36,7 @@ export default function EditTask () {
                     <h4 className="titles">Deadline</h4>
                     <Input 
                         type="date"
-                        className="input-date"
+                        className="input-date date"
                     />
                 </div> 
 
@@ -51,7 +52,7 @@ export default function EditTask () {
                         <Button className="cancel">cancel</Button>
                     </div>
                     <div>
-                        ❤
+                        <RiDeleteBinLine className="delete-btn" />
                     </div>
                 </div>
             </div>

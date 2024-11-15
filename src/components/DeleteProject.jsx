@@ -5,17 +5,17 @@ import './Delete.css'
 
 export default function DeleteTask () {
     return (
-        <div>
+        <div className="delete">
            <div className="new-header">
-                <h2 className="title">Delete Project?</h2>
-                <span><IoCloseSharp /></span>
+                <h2 className="title del">Delete Project?</h2>
+                <span><IoCloseSharp className="close" /></span>
             </div>
             <hr />
             <p className="p-delete">This can not be undone!</p>
             <hr />
             <div className="delete-div">
-                <Button>Delete</Button>
-                <Button>Discard</Button>
+                <Button className="del-btn">Delete</Button>
+                <Button className="cancel">Discard</Button>
             </div>
         </div>
     )
