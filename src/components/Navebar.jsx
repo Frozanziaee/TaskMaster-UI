@@ -4,7 +4,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { TbLogout2 } from "react-icons/tb"
 import './Navebar.css'
 
-export default function Navebar (){
+export default function Navebar ({page}){
     return (
        <header>
             <nav className='navbar'>
@@ -15,11 +15,11 @@ export default function Navebar (){
                         <p className="nav-email">user@gmail.com</p>
                     </div>
                 </div>
-                <h2 className="home">Home</h2>
+                <h2 className="home">{page}</h2>
                 <div className="out">
                     <span><IoIosNotificationsOutline className="notification" /></span>
                     <Button className="sign-out">
-                        Sign Out
+                        SignOut
                         <span><TbLogout2 className="icon-out" /></span>
                     </Button>
                 </div>

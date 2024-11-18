@@ -3,6 +3,7 @@
     justify-content: space-between;
     margin-top: -5em;
     margin-bottom: -5.5em;
+    padding-top: 0.3em;
 }
 
 .nav-user, .out {
@@ -57,7 +58,7 @@
 .sign-out {
     border-radius: 8px;
     border: 1px solid #000000;
-    padding: 8px;
+    padding: .5em;
     margin-left: 0.6em;
     margin-top: -3px;
     display: flex;

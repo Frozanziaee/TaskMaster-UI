@@ -1,9 +1,9 @@
 .new {
     width: 100%;
     max-width: 310px;
-    margin: 1em auto;
+    margin: 100px auto;
     box-shadow: 0px 0px 50px 0px #0000001A;
-    padding: 1em;
+    padding: 1.5em;
 }
 
 .new-header {

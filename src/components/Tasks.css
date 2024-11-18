@@ -1,6 +1,7 @@
 .task {
-    margin: 1em;
-    padding: 1em;
+    margin: 0.2em;
+    margin-bottom: 0;
+    padding: 0 1em;
 }
 
 .task-header {

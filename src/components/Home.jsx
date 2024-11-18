@@ -6,11 +6,12 @@ import { FaCircleMinus } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { IoAddOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export default function () {
     return (
         <div>
-            <Navebar />
+            <Navebar page="Home" />
             <div className="home">
                 <h2 className="title">Projects Overview</h2>
             <div className="cards">
@@ -51,7 +52,11 @@ export default function () {
                     </p>
                 </div>
             </div>
-            <Button className="new-project"><IoAddOutline />New Project</Button>
+            <Button className="new-project">
+                <Link to="/new-project" className="link-add">
+                    <IoAddOutline />New Project 
+                </Link>
+            </Button>
             </div>
             <hr />
             <Footer />

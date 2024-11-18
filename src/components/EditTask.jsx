@@ -7,6 +7,7 @@ import './Edit.css'
 import './New.css'
 import { IoCloseSharp } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
 export default function EditTask () {
     return (
@@ -52,7 +53,7 @@ export default function EditTask () {
                         <Button className="cancel">cancel</Button>
                     </div>
                     <div>
-                        <RiDeleteBinLine className="delete-btn" />
+                        <Link to="/delete-task"><RiDeleteBinLine className="delete-btn" /></Link>
                     </div>
                 </div>
             </div>

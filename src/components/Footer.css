@@ -14,10 +14,14 @@ a {
 }
 
 .color {
-    color: #808080;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 22.4px
+    line-height: 22.4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.3em;
+    color: #808080;
 }
 
 .icon-footer {
@@ -26,14 +30,11 @@ a {
 }
 
 .icon-p {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    padding: 0.6em;
     background: #F2F2F2;
     border-radius: 8px;
+    
 }
-.icon-p:hover {
+.icon-p:active, .icon-p:hover {
     background: #000000;
     color: #FFFFFF;
 }

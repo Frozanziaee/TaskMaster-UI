@@ -5,10 +5,13 @@ import './Tasks.css'
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { FaCircle } from "react-icons/fa";
+import Navebar from "./Navebar";
+import Footer from "./Footer";
 
 export default function Tasks(){
     return (
         <div>
+            <Navebar page="Tasks" />
             <div className="task">
                 <header className="task-header">
                     <span><FaLongArrowAltLeft className="note-icon" /></span>
@@ -61,7 +64,7 @@ export default function Tasks(){
                 </div>
                 <Button className="more">More</Button>
             </div>
-            
+            <Footer />
         </div>
     )
 }

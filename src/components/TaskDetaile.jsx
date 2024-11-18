@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "./Button"
 import './Tasks.css'
 import { PiNotePencil } from "react-icons/pi";
@@ -33,9 +34,10 @@ export default function TaskDetaile ({className}){
             </ul>     
 
             <div className="add-btn">
-                <span><PiNotePencil className="note-icon" /></span>
+                <span><Link to="/edit-task"><PiNotePencil className="note-icon" /></Link></span>
                 <Button className="button">
-                Add Task</Button>
+                    <Link to="/new-task" className="link-add">Add Task</Link>
+                </Button>
             </div>
         </div>
     )

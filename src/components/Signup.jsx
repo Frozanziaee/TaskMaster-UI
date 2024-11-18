@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 import Button from './Button'
 
 export default function Signup(){
     return (
-        <div className="login inter">
+        <div className="login">
             <h1 className="title">TaskMaster</h1>
             <div className='flex'>
             <button className="google"><a href="#" className="link">Continue with Google</a></button>
@@ -20,7 +21,7 @@ export default function Signup(){
                 />
                 <input 
                     type="text"
-                    className="input-pas"
+                    className="input-firstname"
                     placeholder="First Name"
                 />
                 <input 
@@ -41,7 +42,7 @@ export default function Signup(){
                 <Button className="signin">Join us</Button>
             </form>
 
-            <span className="not-mem">Already a member? <a href="#" className="account">Sign in.</a></span>
+            <span className="not-mem">Already a member? <Link to="/signin" className="account">Sign in.</Link></span>
             </div> 
         </div> 
 

@@ -7,13 +7,13 @@ import './Profile.css'
 export default function Profile() {
     return (
         <div>
-            <Navebar />
+            <Navebar page="Profile" />
             <div className="profile">
                 <CiUser className="profile-img" />
                 <form className="flex">
                     <input 
                         type="text"
-                        className="input-pas"
+                        className="input-firstname"
                         placeholder="First Name"
                     />
                     <input 

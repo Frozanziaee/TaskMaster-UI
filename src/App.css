@@ -25,9 +25,15 @@ ul {
 }
 
 .login {
+  padding: 1em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1em;
+}
+
+.sign-style {
+  margin: 50px auto;
 }
 
 .flex {

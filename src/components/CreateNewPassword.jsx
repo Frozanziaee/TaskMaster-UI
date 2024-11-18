@@ -1,13 +1,14 @@
 import Button from './Button'
+import './ForgotPassword.css'
 
 export default function CreateNewPassword (){
     return (
-        <div>
-            <h2 className='title'>Create a New Password</h2>
-            <form>
+        <div className='password'>
+            <h2 className='title-password'>Create a New Password</h2>
+            <form className='flex'>
             <   input 
                     type="password"
-                    className="input-password"
+                    className="input-pas"
                     placeholder="Password"
                 />
                 <input 
@@ -16,7 +17,7 @@ export default function CreateNewPassword (){
                     placeholder="Confirm Password"
                 />
 
-                <Button className="signin">
+                <Button className="signin ">
                     Save & Continue
                 </Button>
             </form>

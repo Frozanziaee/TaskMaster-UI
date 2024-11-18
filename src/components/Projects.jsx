@@ -6,7 +6,7 @@ import './Projects.css'
 export default function Projects () {
     return (
         <div>
-            <Navebar />
+            <Navebar page="Projects" />
                 <div>
                     <div className="header-projects">
                         <div className='content'>
