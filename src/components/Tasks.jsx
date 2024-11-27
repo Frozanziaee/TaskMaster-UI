@@ -8,9 +8,10 @@ import { FaCircle } from "react-icons/fa";
 import Navebar from "./Navebar";
 import Footer from "./Footer";
 
+
 export default function Tasks(){
     return (
-        <div>
+        <div className="positions">
             <Navebar page="Tasks" />
             <div className="task">
                 <header className="task-header">
@@ -62,7 +63,9 @@ export default function Tasks(){
                         </div>
                     </div>   
                 </div>
-                <Button className="more">More</Button>
+                <Button className="more">
+                    More
+                </Button>
             </div>
             <Footer />
         </div>

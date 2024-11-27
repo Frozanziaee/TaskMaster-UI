@@ -4,12 +4,12 @@ import './Delete.css'
 import './New.css'
 
 
-export default function DeleteTask () {
+export default function DeleteTask ({handleclick}) {
     return (
-        <div className="delete">
+        <div className="delete position">
            <div className="new-header">
                 <h2 className="title del">Delete Task?</h2>
-                <span><IoCloseSharp className="close" /></span>
+                <span><IoCloseSharp className="close" onClick={handleclick} /></span>
             </div>
             <hr />
             <p className="p-delete">This can not be undone!</p>

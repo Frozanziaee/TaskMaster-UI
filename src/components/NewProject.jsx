@@ -3,13 +3,20 @@ import Button from "./Button";
 import './New.css'
 import { IoCloseSharp } from "react-icons/io5";
 
-export default function NewTask (){
+
+export default function NewTask ({handleclick}){
+    
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+      }
+
     return (
         <div className="new">
             
             <div className="new-header">
                 <h2>New Project</h2>
-                <span><IoCloseSharp /></span>
+                <span><IoCloseSharp onClick={handleclick} /></span>
             </div>
             <Input 
                 type="text" 
@@ -31,7 +38,8 @@ export default function NewTask (){
                 className="input-date" 
                 placeholder="Deadline"
             />
-            <Button className="signin new-btn">Add</Button>
+            <Button className="signin new-btn" >Add</Button>
+
         </div>
     )
 }

@@ -1,54 +1,83 @@
 import Navebar from './Navebar'
 import Footer from './Footer'
 import './Projects.css'
+import { IoAddOutline } from "react-icons/io5";
+import Button from './Button';
+import { useEffect, useState } from 'react';
+import NewProject from './NewProject';
+import EditProject from './EditProject';
+import { useNavigate } from 'react-router-dom';
+import customFetch from '../axios';
 
 
 export default function Projects () {
+  const navigate = useNavigate()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
+
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch projects from the API
+  useEffect(() => {
+      const fetchProjects = async () => {
+          try {
+              const response = await axios.get('/api/v1/projects');
+              setProjects(response.data.data);
+          } catch (error) {
+              console.error('Error fetching projects:', error);
+          } finally {
+              setLoading(false);
+          }
+      };
+
+      fetchProjects();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  // Function to open the modal
+  const openModal = () =>  setIsModalOpen(true)
+  // Function to close the modal
+  const closeModal = () => setIsModalOpen(false)
+
+  const editModal = () => setIsEdit(true)
+  const closeEditModal = () => setIsEdit(false)
+
     return (
+
         <div>
             <Navebar page="Projects" />
-                <div>
-                    <div className="header-projects">
-                        <div className='content'>
-                            <h4 className="titles">Project</h4>
-                            <p>Task Master UI Design</p>
-                        </div>
-                        <div className="content">
-                            <h4 className="titles">Manager</h4>
-                            <div className='name'>
-                                <img 
-                                    src="../avatar.png"
-                                    className="image" 
-                                />
-                                <span className='name'>Rabia</span>
-                            </div>
-                        </div>
-                        <div className="content">
-                            <h4 className="titles">Tasks</h4>
-                            <p>100</p>
-                        </div>
-                        <div className="content">
-                            <h4 className="titles">In Progress</h4>
-                            <p>99</p>
-                        </div>
-                        <div className="content">
-                            <h4 className="titles">Completed</h4>
-                            <p>27</p>
-                        </div>
-                        <div className="content">
-                            <h4 className="titles">Progress</h4>
-                            <div>
-                                <progress value="50" max="100">50%</progress>
-                                <span className='progress'>50%</span>
-                            </div>
-                        </div>
-                        <div className="content">
-                            <h4 className="titles">Deadline</h4>
-                            <p>Sep 30 2024</p>
-                        </div>
-                    </div>
-                </div>
-                <Footer className="position" />
+        <table border="1" style={{ width: '100%', textAlign: 'left' }}>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Manager</th>
+                    <th>Deadline</th>
+                    <th>Status</th>
+                    <th>All Tasks</th>
+                    <th>In-Progress Tasks</th>
+                    <th>Completed Tasks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {projects.map((project) => (
+                    <tr key={project._id}>
+                        <td>{project.title}</td>
+                        <td>{project.description}</td>
+                        <td>{project.manager?.name || 'N/A'}</td>
+                        <td>{new Date(project.deadline).toLocaleDateString()}</td>
+                        <td>{project.status}</td>
+                        <td>{project.allTasks}</td>
+                        <td>{project.inProgressTasks}</td>
+                        <td>{project.completedTasks}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+  
+            <Footer className="position" />
         </div>
     )
 }
+

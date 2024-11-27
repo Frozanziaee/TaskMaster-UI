@@ -2,8 +2,26 @@ import { Link } from "react-router-dom";
 import Button from "./Button"
 import './Tasks.css'
 import { PiNotePencil } from "react-icons/pi";
+import { useState } from "react";
+import NewTask from "./NewTask";
+import EditTask from "./EditTask";
 
 export default function TaskDetaile ({className}){
+    const [isOpen, setIsOpen] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
+  // Function to open the modal
+  const openTaskModal = () => {
+    setIsOpen(true)
+  }
+
+  // Function to close the modal
+  const closeTaskModal = () => {
+    setIsOpen(false)
+  }
+
+  const editModal = () => setIsEdit(true)
+  const closeEditModal = () => setIsEdit(false)
+
     return (
         <div className={className}>
             <h2 className="title-task">TaskMaster UI/UX Design</h2>
@@ -34,10 +52,16 @@ export default function TaskDetaile ({className}){
             </ul>     
 
             <div className="add-btn">
-                <span><Link to="/edit-task"><PiNotePencil className="note-icon" /></Link></span>
-                <Button className="button">
-                    <Link to="/new-task" className="link-add">Add Task</Link>
+                <span><PiNotePencil className="note-icon" onClick={editModal} /></span>
+                {
+                    isEdit && <EditTask handleclick={closeEditModal}/>
+                }
+                <Button className="button" handleclick={openTaskModal}>
+                   Add Task
                 </Button>
+                {
+                    isOpen && <NewTask handleclick={closeTaskModal} />
+                }
             </div>
         </div>
     )

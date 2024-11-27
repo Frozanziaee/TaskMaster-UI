@@ -6,14 +6,22 @@ import './Edit.css'
 import './New.css'
 import { IoCloseSharp } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { useState } from 'react'
+import DeleteProject from './DeleteProject'
 
-export default function EditProject () {
+
+export default function EditProject ({handlclick}) {
+    const [isDelete , setIsDelete] = useState(false);
+
+    const openDeleteModal = () => setIsDelete(true);
+    const closeDeleteModal = () => setIsDelete(false);
+
     return (
         <div className='edit box-shadow'>   
             <div className='task-master'>
                     <div className='new-header'>
                         <h2 className=' title-edit'> TaskMaster UI/UX Design</h2>
-                        <span><IoCloseSharp /></span>
+                        <span><IoCloseSharp onClick={handlclick} /></span>
                     </div>
                 <div className="content-edit">
                     <h4 className="titles">Manager</h4>
@@ -45,9 +53,12 @@ export default function EditProject () {
                         <Button className="save">save</Button>
                         <Button className="cancel">cancel</Button>
                     </div>
-                    <div>
-                        <RiDeleteBinLine className='delete-btn' />
-                    </div>
+                    <span onClick={openDeleteModal}>
+                        <RiDeleteBinLine className="delete-icon" />
+                    </span>
+                    {
+                        isDelete && <DeleteProject handleclick={closeDeleteModal} />
+                    }
                 </div>
             </div>
         </div>

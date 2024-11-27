@@ -7,15 +7,20 @@ import './Edit.css'
 import './New.css'
 import { IoCloseSharp } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import DeleteTask from './DeleteTask';
 
-export default function EditTask () {
+export default function EditTask ({handleclick}) {
+    const [isDelete , setIsDelete] = useState(false);
+
+    const openDeleteModal = () => setIsDelete(true);
+    const closeDeleteModal = () => setIsDelete(false);
     return (
         <div className='edit box-shadow'>   
             <div className='task-master'>
                 <div className='new-header'>
                     <h2 className='title-edit'> TaskMaster UI/UX Design</h2>
-                    <span><IoCloseSharp /></span>
+                    <span><IoCloseSharp onClick={handleclick} /></span>
                 </div>
                 <div className="content-edit">
                     <h4 className="titles">Assignee</h4>
@@ -52,9 +57,12 @@ export default function EditTask () {
                         <Button className="save">save</Button>
                         <Button className="cancel">cancel</Button>
                     </div>
-                    <div>
-                        <Link to="/delete-task"><RiDeleteBinLine className="delete-btn" /></Link>
-                    </div>
+                    <span onClick={openDeleteModal}>
+                        <RiDeleteBinLine className="delete-icon" />
+                    </span>
+                    {
+                        isDelete && <DeleteTask handleclick={closeDeleteModal} />
+                    }
                 </div>
             </div>
         </div>

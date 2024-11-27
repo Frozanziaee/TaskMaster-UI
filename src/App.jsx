@@ -12,11 +12,13 @@ import Home from './components/Home'
 import NewProject from './components/NewProject'
 import Projects from './components/Projects'
 import Profile from './components/Profile'
-// import EditProject from './components/EditProject'
+import EditProject from './components/EditProject'
 import Tasks from './components/Tasks'
 import NewTask from './components/NewTask'
 import EditTask from './components/EditTask'
 import DeleteTask from './components/DeleteTask'
+import DeleteProject from './components/DeleteProject'
+import ProtectedPages from './components/ProtectedPages'
  
 
 function App() {
@@ -42,18 +44,16 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/create-new-password" element={<CreateNewPassword />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/new-project" element={<NewProject />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/new-task" element={<NewTask />} />
-          <Route path="/edit-task" element={<EditTask />} />
-          <Route path="/delete-task" element={<DeleteTask />} />
+          <Route element={<ProtectedPages />} >
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/tasks" element={<Tasks />} />
+          </Route>
         </Routes>
         
         {/* <Profile /> */}
-        {/* <EditProject /> */}
+        {/*  */}
         
       </BrowserRouter>
     </>
