@@ -1,11 +1,10 @@
 
-.header-projects {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 3em;
+table {
     padding:2em;
-    margin-top: 1em;
+    width: '100%';
+    text-align: center ;
+    width: 100%;
+    margin-left: 1em;
 }
 
 .content {
@@ -18,7 +17,6 @@
 }
 
 .titles {
-    margin-bottom: 2em;
     color: #808080;
 }
 
@@ -46,7 +44,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4em 10em;
+    padding: 2em 4em;
     margin: 1em auto;
 }
 
@@ -67,14 +65,14 @@
         bottom: 5%;
         left: 10%;
     }
-    .header-projects {
-        gap: 0.5em;
+    .titles {
+        font-size: 0.7em;
     }
     .content-project {
         font-size: 0.5rem;
     }
     .new-content {
-        padding: 1em ;
+        padding: 1em 3em;
     }
     
 }

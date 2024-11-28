@@ -18,3 +18,7 @@
 .new-btn {
     width: 100%;
 }
+
+.close {
+    cursor: pointer;
+}

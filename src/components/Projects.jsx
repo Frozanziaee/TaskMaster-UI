@@ -22,7 +22,7 @@ export default function Projects () {
   useEffect(() => {
       const fetchProjects = async () => {
           try {
-              const response = await axios.get('/api/v1/projects');
+              const response = await customFetch.get('/projects');
               setProjects(response.data.data);
           } catch (error) {
               console.error('Error fetching projects:', error);
@@ -34,7 +34,7 @@ export default function Projects () {
       fetchProjects();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+   if (loading) return <p>Loading...</p>;
   // Function to open the modal
   const openModal = () =>  setIsModalOpen(true)
   // Function to close the modal
@@ -43,12 +43,18 @@ export default function Projects () {
   const editModal = () => setIsEdit(true)
   const closeEditModal = () => setIsEdit(false)
 
+  //const { allTasks, completedTasks } = project;
+  const progress = ((100 * completedTasks) / allTasks) || 0;
+
+  let color = progress < 40 ? "red" : progress < 80 ? "blue" : "green";
+
+
     return (
 
         <div>
             <Navebar page="Projects" />
-        <table border="1" style={{ width: '100%', textAlign: 'left' }}>
-            <thead>
+        <table>
+            <thead className='titles'>
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
@@ -67,7 +73,13 @@ export default function Projects () {
                         <td>{project.description}</td>
                         <td>{project.manager?.name || 'N/A'}</td>
                         <td>{new Date(project.deadline).toLocaleDateString()}</td>
-                        <td>{project.status}</td>
+                        <td>{project.status}
+                            <progress 
+                                value={progress} 
+                                max="100">50%
+                            </progress>
+                            <span className='progress'>50%</span>
+                        </td>
                         <td>{project.allTasks}</td>
                         <td>{project.inProgressTasks}</td>
                         <td>{project.completedTasks}</td>
@@ -75,7 +87,24 @@ export default function Projects () {
                 ))}
             </tbody>
         </table>
-  
+        <div className='new-content'>
+            {/* Button to open the modal */}
+            <Button className="new-pro" handleclick={openModal}>
+                <IoAddOutline className='add-icon' />New Project
+            </Button>
+
+            {/* Modal component */}
+            {
+                isModalOpen && <NewProject handleclick={closeModal} />
+            }
+                        
+            <Button className="new-pro" handleclick={editModal}>
+                More
+            </Button>
+            {
+                isEdit && <EditProject handlclick={closeEditModal} />
+            }
+        </div>    
             <Footer className="position" />
         </div>
     )

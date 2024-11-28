@@ -10,9 +10,9 @@ export default function Signup(){
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-        firstname: '',
-        lastname: '',
-        dateofbirth: '',
+        firstName: '',
+        lastName: '',
+        dateOfBirth: '',
         country: ''
     })
 
@@ -37,15 +37,15 @@ export default function Signup(){
 
     const validateForm = () => {
         const newErros = {}
-        const {email, password, firstname, lastname, dateofbirth, country} = formData
+        const {email, password, firstName, lastName, dateOfBirth, country} = formData
 
         if (!email) newErros.email = "email is required"
         else if (!/\S+@\S+/.test(email)) newErros.email = "Invalid email"
         if (!password) newErros.password = "password is required"
         else if (password.length < 6) newErros.password = "password must be at least 6 characters"
-        if (!firstname) newErros.firstname = "Please enter your first name"
-        if (!lastname) newErros.lastname = "Please enter your last name"
-        if (dateofbirth) newErros.dateofbirth = "Date of Birth is required"
+        if (!firstName) newErros.firstname = "Please enter your first name"
+        if (!lastName) newErros.lastname = "Please enter your last name"
+        if (dateOfBirth) newErros.dateofbirth = "Date of Birth is required"
         if (!country) newErros.country = "Please enter your country"
 
         return newErros
@@ -115,8 +115,8 @@ export default function Signup(){
                 <input 
                     type="text"
                     id='firstname'
-                    name='firstname'
-                    value={formData.firstname}
+                    name='firstName'
+                    value={formData.firstName}
                     onChange={handleChange}
                     className="input-firstname"
                     placeholder="First Name"
@@ -127,8 +127,8 @@ export default function Signup(){
                 <input 
                     type="text"
                     id='lastname'
-                    name='lastname'
-                    value={formData.lastname}
+                    name='lastName'
+                    value={formData.lastName}
                     onChange={handleChange}
                     className="input-lastname"
                     placeholder="Last name"
@@ -139,8 +139,8 @@ export default function Signup(){
                 <input 
                     type="date"
                     id='date'
-                    name='dateofbirth'
-                    value={formData.dateofbirth}
+                    name='dateOfBirth'
+                    value={formData.dateOfBirth}
                     onChange={handleChange}
                     className="input-date"
                     placeholder="Date of Birth"

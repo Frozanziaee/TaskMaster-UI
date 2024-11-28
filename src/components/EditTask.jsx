@@ -20,7 +20,7 @@ export default function EditTask ({handleclick}) {
             <div className='task-master'>
                 <div className='new-header'>
                     <h2 className='title-edit'> TaskMaster UI/UX Design</h2>
-                    <span><IoCloseSharp onClick={handleclick} /></span>
+                    <span><IoCloseSharp onClick={handleclick} className='close' /></span>
                 </div>
                 <div className="content-edit">
                     <h4 className="titles">Assignee</h4>

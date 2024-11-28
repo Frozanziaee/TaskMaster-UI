@@ -21,7 +21,7 @@ export default function EditProject ({handlclick}) {
             <div className='task-master'>
                     <div className='new-header'>
                         <h2 className=' title-edit'> TaskMaster UI/UX Design</h2>
-                        <span><IoCloseSharp onClick={handlclick} /></span>
+                        <span><IoCloseSharp onClick={handlclick} className='close' /></span>
                     </div>
                 <div className="content-edit">
                     <h4 className="titles">Manager</h4>
