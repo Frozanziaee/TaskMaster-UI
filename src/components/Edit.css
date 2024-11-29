@@ -84,3 +84,9 @@
     margin-top: 0.9em;
     cursor: pointer;
 }
+
+textarea {
+    border: none;
+    width: 100%;
+    padding: 1em;
+}

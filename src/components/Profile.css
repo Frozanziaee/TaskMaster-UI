@@ -7,18 +7,35 @@
 }
 
 .profile-img {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
     background: #000000;
     color: #FFFFFF;
-    padding: 80px;
+    padding:1em;
     border-radius: 8px;
 
 }
 
 .profile-btn {
-    background: #CCCCCC;
+    background: #000000;
     color: #FFFFFF;
     padding: 0.5em 8.5em;
     border-radius: 4px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    border: none;
+    display: none;
+    /* width: 10px;
+    font-size: 0.7rem;
+    cursor: pointer; */
 }
 
 .footer {

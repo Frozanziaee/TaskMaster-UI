@@ -22,3 +22,7 @@
 .close {
     cursor: pointer;
 }
+
+.select {
+  padding: 0.7em 13.5em 0.7em 1em;
+}

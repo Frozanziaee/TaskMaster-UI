@@ -32,6 +32,7 @@ a {
 .icon-p {
     background: #F2F2F2;
     border-radius: 8px;
+    padding: 1em;
     
 }
 .icon-p:active, .icon-p:hover {

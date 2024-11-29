@@ -2,17 +2,34 @@ import Input from "./Input";
 import Button from "./Button";
 import './New.css'
 import { IoCloseSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import customFetch from "../axios";
 import { toast } from "react-toastify";
 import useFetch from "../hooks/useFetch";
 
+
 export default function NewTask ({handleclick}){
+    const [users, setUsers] = useState([]);
     const [formData, setFormData] = useState({
-        title: '', descriotion: '', assignee: '', deadline:''
+        title: '',
+        description: '', 
+        assignee: '', 
+        deadline:''
     })
 
-    const { data, error, isLoding } = useFetch('/users')
+    useEffect(() => {
+        const fetchUsers = async () => {
+          try {
+            const response = await customFetch.get("/users");
+            setUsers(response.data.users);
+          } catch (error) {
+            console.error("Error fetching projects:", error);
+          } finally {
+          }
+        };
+    
+        fetchUsers();
+      }, []);
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -23,14 +40,22 @@ export default function NewTask ({handleclick}){
         e.preventDefault()
 
         try {
-            const { data } = await customFetch.post('/tasks', formData)
+            const { data } = await customFetch.post(`/tasks?projectId=${project._id}`, formData)
             console.log(data)
             toast.success(data.message)
         } catch (error) {
             console.log(error)
             toast.success(error.response.message)
             
+        }finally {
+            handleclick();
         }
+        setFormData({
+            title: "",
+            description: "",
+            assignee: "",
+            deadline: "",
+          });
     }
 
     return (
@@ -53,19 +78,24 @@ export default function NewTask ({handleclick}){
                 <Input 
                     type="text"
                     name="description"  
-                    value={formData.descriotion}
+                    value={formData.description}
                     onChange={handleChange} 
                     className="input-description" 
                     placeholder="Description"
                 />
-                <Input 
-                    type="text"
-                    name="assignee" 
-                    value={formData.assignee}
-                    onChange={handleChange} 
-                    className="input-name" 
-                    placeholder="Assignee"
-                />
+                <select
+                placeholder="Assignee"
+                name="assignee"
+                className="input-name"
+                onChange={handleChange}
+                value={formData.assignee}
+                >
+                {users.map((user) => (
+                    <option value={user._id} key={user._id}>
+                    {user.firstName}
+                    </option>
+                ))}
+            </select>
                 <Input 
                     type="date" 
                     name="deadline" 

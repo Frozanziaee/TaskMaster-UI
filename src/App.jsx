@@ -9,35 +9,19 @@ import ResetPassword from './components/ResetPassword'
 import ForgotPassword from './components/ForgotPassword'
 import CreateNewPassword from './components/CreateNewPassword'
 import Home from './components/Home'
-import NewProject from './components/NewProject'
 import Projects from './components/Projects'
 import Profile from './components/Profile'
-import EditProject from './components/EditProject'
 import Tasks from './components/Tasks'
-import NewTask from './components/NewTask'
-import EditTask from './components/EditTask'
-import DeleteTask from './components/DeleteTask'
-import DeleteProject from './components/DeleteProject'
 import ProtectedPages from './components/ProtectedPages'
+import AuthProvider from './context/AuthContext'
  
 
 function App() {
-  // const [data, setData] = useState(null)
-
-  // useEffect(() => {
-  //   // Fetch data from the backend
-  //   axios.get('http://localhost:3000/api/v1/auth')
-  //     .then(response => {
-  //       setData(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching data:', error);
-  //     })
-  // }, [])
 
   return (
     <>
       <BrowserRouter className="App">
+        <AuthProvider>
         <Routes>
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -51,10 +35,7 @@ function App() {
             <Route path="/tasks" element={<Tasks />} />
           </Route>
         </Routes>
-        
-        {/* <Profile /> */}
-        {/*  */}
-        
+        </AuthProvider>
       </BrowserRouter>
     </>
   )

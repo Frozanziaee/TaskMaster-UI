@@ -9,9 +9,9 @@ export default function Footer ({className}) {
     return (
         <div className={className}>
             <footer>
-                <Button className="icon-p"><Link to="/home" className=" color "><RiHome5Line className="icon-footer" />Home</Link></Button>
-                <Button className="icon-p"><Link to="/projects" className="color"><MdOutlineStickyNote2 className="icon-footer" />Projects</Link></Button>
-                <Button className="icon-p"><Link to="/profile "className="color"><CiUser className="icon-footer" />Profile</Link></Button>
+                <Link to="/" className=" color icon-p "><RiHome5Line className="icon-footer" />Home</Link>
+                <Link to="/projects" className="color icon-p"><MdOutlineStickyNote2 className="icon-footer" />Projects</Link>
+                <Link to="/profile "className="color icon-p"><CiUser className="icon-footer" />Profile</Link>
             </footer>
         </div>
     )
