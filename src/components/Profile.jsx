@@ -62,17 +62,7 @@ export default function Profile() {
           } else {
             toast.error("Something went wrong, please try again later!");
         }
-    }
-    setFormData({
-        firstName: '',
-        lastName: '',
-        dateOfBirth: '',
-        country: '',
-        profile: '',
-        currentPassword: "",
-        newPassword: "",
-        confirmPassword: "",
-    }) 
+    } 
 }
 
     return (
@@ -83,7 +73,7 @@ export default function Profile() {
                     <div className="image-container">
                         <img
                             src={imgPath || user?.profile}
-                            alt={`profile picture of`}
+                            alt='profile picture of'
                             className="profile-img"
                         />
                         <input
@@ -163,3 +153,4 @@ export default function Profile() {
         </div>
     )
 }
+

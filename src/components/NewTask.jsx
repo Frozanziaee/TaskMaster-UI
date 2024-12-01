@@ -5,10 +5,13 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import customFetch from "../axios";
 import { toast } from "react-toastify";
-import useFetch from "../hooks/useFetch";
+import { useLocation } from "react-router-dom";
+
+
 
 
 export default function NewTask ({handleclick}){
+    const {state} = useLocation
     const [users, setUsers] = useState([]);
     const [formData, setFormData] = useState({
         title: '',
@@ -40,7 +43,7 @@ export default function NewTask ({handleclick}){
         e.preventDefault()
 
         try {
-            const { data } = await customFetch.post(`/tasks?projectId=${project._id}`, formData)
+            const { data } = await customFetch.post(`/tasks?projectId=${state._id}`, formData)
             console.log(data)
             toast.success(data.message)
         } catch (error) {
@@ -50,13 +53,8 @@ export default function NewTask ({handleclick}){
         }finally {
             handleclick();
         }
-        setFormData({
-            title: "",
-            description: "",
-            assignee: "",
-            deadline: "",
-          });
     }
+
 
     return (
         <div className="new">
@@ -86,7 +84,7 @@ export default function NewTask ({handleclick}){
                 <select
                 placeholder="Assignee"
                 name="assignee"
-                className="input-name"
+                className="select"
                 onChange={handleChange}
                 value={formData.assignee}
                 >

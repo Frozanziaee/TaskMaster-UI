@@ -66,7 +66,25 @@ export default function Login(){
                 <button className="google"><a href="#" className="link">Continue with Google</a></button>
                 <button className="github"><a href="#" className="link">Continue with Github</a></button>
             </div>
-            <span className="or">or</span>
+            <div style={{ textAlign: "center", margin: "4px 0" }}>
+          <hr
+            style={{
+              border: "none",
+              borderTop: "1px solid #ccc",
+              width: "35%",
+              display: "inline-block",
+            }}
+          />
+          <span style={{ padding: "0 10px", color: "#888" }}>or</span>
+          <hr
+            style={{
+              border: "none",
+              borderTop: "1px solid #ccc",
+              width: "35%",
+              display: "inline-block",
+            }}
+          />
+        </div>
 
             <form className="form-login flex" onSubmit={handleSubmit}>
                 <div>
@@ -91,10 +109,23 @@ export default function Login(){
                 />
                 {/* {errors.password && <p style={{color: 'red'}}>{errors.password}</p>} */}
                 </div>
-                <Button className="signin" type="submit">Sign in</Button>
+                <div className="remember">
+                    <label className="check">
+                    <input type="checkbox" className="checkbox" />
+                        Remember me
+                    </label>
+                    <Link to="/forgot-password" className="underline">
+                        Forgot password?
+                    </Link>
+                </div>
+                <Button 
+                    className="signin" 
+                    type="submit">
+                        Sign in
+                </Button>
             </form>
 
-            <span className="not-mem">Not a member? <Link to ="/signup" className="account">Create an account.</Link></span>
+            <span className="not-mem">Not a member? <Link to ="/signup" className="underline">Create an account.</Link></span>
         </div>
     )
 }

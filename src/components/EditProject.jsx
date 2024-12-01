@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import DeleteProject from "./DeleteProject";
 import customFetch from "../axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function EditProject({ selectedProject, handleclick }) {
   const [isDelete, setIsDelete] = useState(false);
@@ -18,6 +19,7 @@ export default function EditProject({ selectedProject, handleclick }) {
     manager: selectedProject?.manager || "",
     deadline: selectedProject?.deadline || "",
   });
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -54,6 +56,18 @@ export default function EditProject({ selectedProject, handleclick }) {
     }
   };
 
+  const handleDelete = async () => {
+      try {
+        const { data } = await customFetch.delete(`/projects/${projectId}`);
+        toast.success(data.message);
+        navigate("/projects");
+      } catch (error) {
+        console.error(error);
+        toast.error(error.message);
+      } finally {
+        closeDeleteModal()
+      }
+  }
   const openDeleteModal = () => setIsDelete(true);
   const closeDeleteModal = () => setIsDelete(false);
 
@@ -114,7 +128,7 @@ export default function EditProject({ selectedProject, handleclick }) {
             <span onClick={openDeleteModal}>
               <RiDeleteBinLine className="delete-icon" />
             </span>
-            {isDelete && <DeleteProject handleclick={closeDeleteModal} />}
+            {isDelete && <DeleteProject handleclick={closeDeleteModal} onDelete={handleDelete} />}
           </div>
         </form>
       </div>

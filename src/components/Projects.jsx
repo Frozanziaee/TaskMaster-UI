@@ -7,12 +7,14 @@ import { useEffect, useState } from "react";
 import NewProject from "./NewProject";
 import EditProject from "./EditProject";
 import customFetch from "../axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -39,27 +41,32 @@ export default function Projects() {
   return (
     <div>
       <Navebar page="Projects" />
-      <table >
-        <thead className="titles">
-          <tr>
-            <th>Title</th>
-            {/* <th>Description</th> */}
-            <th>Manager</th>
-            <th>Deadline</th>
-            <th>Status</th>
-            <th>Progress</th>
-            <th>All Tasks</th>
-            <th>In-Progress Tasks</th>
-            <th>Completed Tasks</th>
-          </tr>
+      <table id="customers">
+        <thead>
+        <tr>
+          <th>Title</th>
+          {/* <th>Description</th> */}
+          <th>Manager</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Progress</th>
+          <th>All Tasks</th>
+          <th>In-Progress Tasks</th>
+          <th>Completed Tasks</th>
+        </tr>
         </thead>
-        <tbody>
-          {projects.map((project) => {
-            let progress = (project.completedTasks * 100) / project.allTasks || 0;
-            return (
-              <tr key={project._id}>
+        {projects.map((project) => {
+          let progress = (project.completedTasks * 100) / project.allTasks || 0;
+          return (
+            
+              <tr
+                key={project._id}
+                onClick={() => {
+                  navigate(project._id, {state: project});
+                }}
+              >
                 <td>{project.title}</td>
-                {/* <td>{project.description}</td> */}
+                <td>{project.description}</td>
                 <td>{project.manager?.firstName}</td>
                 <td>{new Date(project.deadline).toLocaleDateString()}</td>
                 <td>{project.status}</td>
@@ -73,9 +80,9 @@ export default function Projects() {
                 <td>{project.inProgressTasks}</td>
                 <td>{project.completedTasks}</td>
               </tr>
-            );
-          })}
-        </tbody>
+            
+          );
+        })}
       </table>
       <div className="new-content">
         {/* Button to open the modal */}

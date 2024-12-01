@@ -9,6 +9,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useState, useEffect } from 'react';
 import DeleteTask from './DeleteTask';
+import { useNavigation } from 'react-router-dom';
 
 export default function EditTask ({handleclick, selectedTask}) {
     const [isDelete , setIsDelete] = useState(false);
@@ -19,6 +20,7 @@ export default function EditTask ({handleclick, selectedTask}) {
         manager: selectedTask?.manager || "",
         deadline: selectedTask?.deadline || "",
       });
+      const navigate = useNavigation
 
       useEffect(() => {
         const fetchUsers = async () => {
@@ -52,6 +54,18 @@ export default function EditTask ({handleclick, selectedTask}) {
           toast.success(error.response.message);
         } finally {
           handleclick();
+        }
+      };
+
+      const handleDelete = async () => {
+        try {
+          const { data } = await axiosIns.delete(`/tasks/${taskId}`);
+          toast.success(data.message);
+        } catch (error) {
+          console.error(error);
+          toast.error(error.message);
+        } finally {
+          closeDeleteModal()
         }
       };
 

@@ -1,6 +1,6 @@
 .new {
     width: 100%;
-    max-width: 310px;
+    max-width: 400px;
     box-shadow: 0px 0px 50px 0px #0000001A;
     padding: 1.5em;
     position: absolute;
@@ -21,6 +21,11 @@
 
 .close {
     cursor: pointer;
+    color: #000000;
+    width: 40px;
+    height: 40px;
+    padding: 0.3em;
+    
 }
 
 .select {
