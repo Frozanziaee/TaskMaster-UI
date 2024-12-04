@@ -3,6 +3,8 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Button from './Button'
 import { useState } from 'react'
 import customFetch from '../axios'
+import GoogleAuth from './GoogleAuth'
+import AuthProvider from '../context/AuthContext'
 
 export default function Signup(){
     const [errors, setErrors] = useState()
@@ -82,9 +84,7 @@ export default function Signup(){
     return (
         <div className="login">
             <h1 className="title">TaskMaster</h1>
-            <div className='flex'>
-            <button className="google"><a href="#" className="link">Continue with Google</a></button>
-            <button className="github"><a href="#" className="link">Continue with Github</a></button>
+                <GoogleAuth />
             {submitted && <p style={{color: 'green'}}>Registration Successful</p>}
             <form className="flex" onSubmit={handleSubmit}>
                 <div>
@@ -162,8 +162,7 @@ export default function Signup(){
                 <Button className="signin" type="submit">Join us</Button>
             </form>
 
-            <span className="not-mem">Already a member? <Link to="/signin" className="account">Sign in.</Link></span>
-            </div> 
+            <span className="not-mem">Already a member? <Link to="/signin" className="account">Sign in.</Link></span> 
         </div> 
 
     )

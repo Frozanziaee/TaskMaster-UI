@@ -19,7 +19,7 @@ body {
    color: #000000;
    margin-top: 0.5em;
    margin-bottom: 0;
-  padding: 0;
+    padding: 0;
  }
 
 ul {
@@ -36,6 +36,7 @@ ul {
   justify-content: center;
   gap: 1em;
   width: 400px;
+  margin: 0 auto;
 }
 
 .remember {
@@ -74,7 +75,8 @@ input, select {
   line-height: 22.4px;
   color: #111113;
   border-radius: 3px;
-  border: 1px solid #11111333
+  border: 1px solid #11111333;
+  border-radius: 8px;
 
 }
 
@@ -83,29 +85,23 @@ input, select {
 }
 
 .google, .github {
-  padding: 0.5em 4.5em;
+  padding: 0.7em 4.7em;
   margin-bottom: 1em;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 22.4px;
 }
 
 .google {
   background: #D7503F; 
-}
-.google .link {
+  margin-top: 0;
   color: #FFFFFF;
 }
 
 .github {
   background: #D9D9D9;
-}
-.github .link {
+  margin-bottom: 0;
   color: #111111;
-}
-
-.link{
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 22.4px;
-  text-decoration: none;
 }
 
 .input-date {
@@ -126,22 +122,27 @@ input, select {
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  margin-top: 2em;
 }
 
 #customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
+  padding: 0.5em; 
+  text-align: left;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #f2f2f2;}
 
 #customers tr:hover {background-color: #ddd;}
 
 #customers th {
+  border-bottom: 1px solid #ccc;
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
+  background-color: #FFFFFF;
+  font-weight: 700;
+}
+
+#customers td {
+  color: #000000;
+  padding: 1em;
 }

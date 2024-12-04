@@ -44,7 +44,7 @@ export default function Tasks() {
     e.preventDefault();
 
     try {
-      const { data } = await customFetch.post(`/tasks?projectId=${id}&search=${search}`);
+      const { data } = await customFetch.post(`/tasks?projectId=${state._id}&search=${search}`);
       console.log(data);
       toast.success(data.message);
     } catch (error) {
@@ -79,11 +79,11 @@ export default function Tasks() {
             <ProjectDetaile className="task-detaile" selectedProject={state}  />
           </div>
 
-          <table className="titles" style={{ width: "60%" }}>
+          <table id="customers" className="titles" style={{ width: "60%", marginTop:0 }}>
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Description</th>
+                {/* <th>Description</th> */}
                 <th>Assignee</th>
                 <th>Status</th>
                 <th>Deadline</th>
@@ -96,7 +96,9 @@ export default function Tasks() {
                   <td>{task.title}</td>
                   {/* <td>{task.description}</td> */}
                   <td>{task.assignee?.name || "Unassigned"}</td>
-                  <td>{task.status}</td>
+                  <td>{task.status}
+                    <span className="status-btn"><FaCircle className="status-icon" /></span>
+                  </td>
                   <td>{new Date(task.deadline).toLocaleDateString()}</td>
                   <td>{task.project?.name || "No Project"}</td>
                 </tr>
@@ -106,7 +108,7 @@ export default function Tasks() {
         </div>
         <Button className="more">More</Button>
       </div>
-
+      <hr />
       <Footer />
     </div>
   );

@@ -41,18 +41,18 @@ export default function Projects() {
   return (
     <div>
       <Navebar page="Projects" />
-      <table id="customers">
+      <table id="customers" className="titles">
         <thead>
         <tr>
-          <th>Title</th>
+          <th>Project</th>
           {/* <th>Description</th> */}
           <th>Manager</th>
+          <th>Tasks</th>
+          <th>In Progress</th>
+          <th>Completed</th>
+          <th>Progress</th>
           <th>Deadline</th>
           <th>Status</th>
-          <th>Progress</th>
-          <th>All Tasks</th>
-          <th>In-Progress Tasks</th>
-          <th>Completed Tasks</th>
         </tr>
         </thead>
         {projects.map((project) => {
@@ -66,19 +66,19 @@ export default function Projects() {
                 }}
               >
                 <td>{project.title}</td>
-                <td>{project.description}</td>
+                {/* <td>{project.description}</td> */}
                 <td>{project.manager?.firstName}</td>
-                <td>{new Date(project.deadline).toLocaleDateString()}</td>
-                <td>{project.status}</td>
+                <td>{project.allTasks}</td>
+                <td>{project.inProgressTasks}</td>
+                <td>{project.completedTasks}</td>
                 <td>
                   <progress value={progress} max="100">
                     {progress}
                   </progress>
                   <span className="progress">{progress}</span>
                 </td>
-                <td>{project.allTasks}</td>
-                <td>{project.inProgressTasks}</td>
-                <td>{project.completedTasks}</td>
+                <td>{new Date(project.deadline).toLocaleDateString()}</td>
+                <td>{project.status}</td>
               </tr>
             
           );
@@ -99,7 +99,8 @@ export default function Projects() {
         </Button>
         {isEdit && <EditProject handleclick={closeEditModal} />}
       </div>
-      <Footer className="position" />
+      <hr />
+      <Footer />
     </div>
   );
 }

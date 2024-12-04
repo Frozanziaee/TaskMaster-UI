@@ -1,10 +1,9 @@
-
-
 import Button from "./Button"
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, Navigate, Link } from "react-router-dom"
-import {AuthContext} from "../context/AuthContext"
+import AuthProvider, {AuthContext} from "../context/AuthContext"
 import { toast } from "react-toastify"
+import GoogleAuth from "./GoogleAuth"
 
 export default function Login(){
     const [formData, setFormData] = useState({
@@ -62,11 +61,9 @@ export default function Login(){
     return (
         <div className="login sign-style">
             <h1 className="title">TaskMaster</h1>
-            <div className="flex">
-                <button className="google"><a href="#" className="link">Continue with Google</a></button>
-                <button className="github"><a href="#" className="link">Continue with Github</a></button>
-            </div>
-            <div style={{ textAlign: "center", margin: "4px 0" }}>
+                <GoogleAuth />
+            
+            <div style={{ textAlign: "center", margin: "0", padding:"0" }}>
           <hr
             style={{
               border: "none",

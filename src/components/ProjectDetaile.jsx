@@ -55,7 +55,7 @@ export default function ProjectDetaile ({className, selectedProject}){
                    Add Task
                 </Button>
                 {
-                    isOpen && <NewTask handleclick={closeTaskModal} />
+                    isOpen && <NewTask handleclick={closeTaskModal} task={selectedProject} />
                 }
             </div>
         </div>

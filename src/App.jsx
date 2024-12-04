@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import axios from 'axios'
 import "./App.css";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -14,12 +13,17 @@ import Profile from "./components/Profile";
 import Tasks from "./components/Tasks";
 import ProtectedPages from "./components/ProtectedPages";
 import AuthProvider from "./context/AuthContext";
+import process from "process";
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
 
 function App() {
+  
   return (
     <>
       <BrowserRouter className="App">
         <AuthProvider>
+        <GoogleOAuthProvider clientId={clientId}>
           <Routes>
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
@@ -32,6 +36,7 @@ function App() {
               <Route path="profile" element={<Profile />}></Route>
             </Route>
           </Routes>
+        </GoogleOAuthProvider>
         </AuthProvider>
       </BrowserRouter>
     </>

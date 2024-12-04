@@ -1,6 +1,7 @@
 .home {
     margin: 100px auto;
     width: 100%;
+    max-width: 1200px;
 }
 
 .cards {
@@ -11,8 +12,12 @@
     gap: 1em; 
 }
 
-.title {
+.home .title {
+    text-align: start;
+    margin-left: 1em;
     margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
 
 .card {
@@ -70,13 +75,14 @@
 }
 
 .new-project {
-    width: 79%;
+    width: 85%;
     border: 1px solid #555252;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 28px;
     background: #FFFFFF;
-    margin: 1em auto;   
+    margin: 1em auto; 
+    border-radius: 14px;  
 }
 
 .link-add {
@@ -85,5 +91,11 @@
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+}
+
+@media(min-width:768px) {
+    .home .title {
+        margin-left: 2.5em;
+    }
 }
 
