@@ -13,7 +13,6 @@ import Profile from "./components/Profile";
 import Tasks from "./components/Tasks";
 import ProtectedPages from "./components/ProtectedPages";
 import AuthProvider from "./context/AuthContext";
-import process from "process";
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 

@@ -29,7 +29,6 @@ export default function GoogleAuth() {
     return (
         <div className="flex">
             <button className="google" onClick={googleLogin}>Continue with Google</button>
-            <button className="github">Continue with Github</button>
         </div>
     )
 }
